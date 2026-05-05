@@ -1,7 +1,7 @@
 {
   "name": "gohighlevel-mcp",
   "version": "1.0.0",
-  "description": "Model Context Protocol (MCP) server for GoHighLevel integration",
+  "description": "Model Context Protocol (MCP) server for GoHighLevel (GHL) integration. Connect Claude, Cursor, and AI agents to your GoHighLevel CRM, pipelines, appointments, and conversations via 81 built-in tools.",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -20,10 +20,22 @@
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "gohighlevel",
     "ghl",
+    "leadconnector",
     "crm",
-    "model-context-protocol"
+    "claude",
+    "cursor",
+    "ai-agent",
+    "automation",
+    "api-wrapper",
+    "typescript",
+    "contacts",
+    "pipelines",
+    "appointments",
+    "workflows",
+    "webhooks"
   ],
   "repository": {
     "type": "git",

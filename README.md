@@ -1,11 +1,20 @@
 # gohighlevel-mcp
 
-Model Context Protocol (MCP) server for [GoHighLevel](https://www.gohighlevel.com/) integration. Enables Claude Code and other MCP clients to interact directly with your GHL account via a comprehensive toolset.
+[![npm version](https://img.shields.io/npm/v/gohighlevel-mcp.svg)](https://www.npmjs.com/package/gohighlevel-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+
+A production-ready **Model Context Protocol (MCP) server** for [GoHighLevel](https://www.gohighlevel.com/) (GHL / LeadConnector). Connect Claude Code, Cursor, Windsurf, and any MCP-compatible client directly to your GoHighLevel CRM, pipelines, appointments, conversations, blogs, workflows, AI agents, and more.
+
+**81 built-in tools** — the most comprehensive open-source GoHighLevel MCP integration available.
 
 > **Note:** This project was originally built for NanoShield Roofing. It has been generalized for public use. Replace placeholder values with your own GHL credentials.
 
 ## Table of Contents
 
+- [Why gohighlevel-mcp?](#why-gohighlevel-mcp)
+- [Features](#features)
+- [Quick Start](#quick-start)
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Configuration](#configuration)
@@ -13,6 +22,70 @@ Model Context Protocol (MCP) server for [GoHighLevel](https://www.gohighlevel.co
 - [Development](#development)
 - [Known API Limitations](#known-api-limitations)
 - [Troubleshooting](#troubleshooting)
+- [FAQ](#faq)
+- [Related Projects](#related-projects)
+- [License](#license)
+
+---
+
+## Why gohighlevel-mcp?
+
+Most GoHighLevel integrations require no-code platforms like Zapier or n8n. This **GoHighLevel MCP server** lets you control your entire GHL account using natural language through AI assistants like Claude. Instead of clicking through dashboards, you can:
+
+- Query contacts, deals, and calendars conversationally
+- Automate CRM workflows with AI-generated commands
+- Integrate GoHighLevel data into software projects using TypeScript
+- Build custom GoHighLevel automations without writing boilerplate API code
+
+If you are looking for a **GoHighLevel API wrapper**, **GHL CLI tool**, or **LeadConnector integration**, this MCP server provides a type-safe, well-documented bridge between GoHighLevel and modern AI agents.
+
+---
+
+## Features
+
+- **81 MCP tools** covering Contacts, Opportunities, Appointments, Pipelines, Calendars, Conversations, Blogs, Tasks, Notes, Custom Fields, Tags, Workflows, Voice AI, Conversation AI, Webhooks, Custom Values, and Locations
+- **Dual authentication** — Private Integration Token (PIT) or OAuth 2.0 with automatic refresh
+- **TypeScript-first** — fully typed handlers, no `any` types, strict ESLint rules
+- **Zero config** — `prepare` script builds automatically after `npm install`
+- **CLI helper** — built-in OAuth code exchange script
+- **CI ready** — GitHub Actions workflow included for lint, format, build, and secret scanning
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/tkturners/gohighlevel-mcp.git
+cd gohighlevel-mcp
+
+# 2. Install dependencies
+npm install
+
+# 3. Configure environment
+cp .env.example .env
+# Edit .env and add your GHL_API_TOKEN and GHL_LOCATION_ID
+
+# 4. Start the server
+npm run dev
+```
+
+To connect Claude Code, add this to your `~/.claude.json`:
+
+```json
+{
+  "mcpServers": {
+    "gohighlevel-mcp": {
+      "command": "node",
+      "args": ["/absolute/path/to/gohighlevel-mcp/dist/index.js"],
+      "env": {
+        "GHL_API_TOKEN": "YOUR_TOKEN",
+        "GHL_LOCATION_ID": "your_location_id_here"
+      }
+    }
+  }
+}
+```
 
 ---
 
@@ -76,6 +149,7 @@ Copy `.env.example` to `.env` and configure **one** authentication method.
 Generate in GHL: **Settings > Private Integrations > Create Token**
 
 Select scopes:
+
 - `contacts`
 - `opportunities`
 - `conversations`
@@ -389,6 +463,35 @@ Axios `patch` only accepts 2 arguments. This server uses `client.request('PATCH'
 Authorization codes are single-use. If n8n or another service already exchanged it, generate a fresh code in GHL or use a Private Integration Token instead.
 
 ---
+
+## FAQ
+
+**What is an MCP server?**
+A Model Context Protocol (MCP) server exposes tools that AI assistants like Claude, Cursor, and Windsurf can invoke. This lets you control GoHighLevel using natural language.
+
+**Do I need a GoHighLevel subscription?**
+Yes. You need an active GoHighLevel account and a Private Integration Token or OAuth credentials.
+
+**Is this an official GoHighLevel project?**
+No. This is an open-source community project. It is not affiliated with or endorsed by GoHighLevel.
+
+**Can I use this with n8n or Zapier?**
+This server is designed for MCP clients (Claude Code, Cursor, etc.). For n8n, use the native GoHighLevel node.
+
+**Does it support multiple locations?**
+Currently, one server instance connects to a single `GHL_LOCATION_ID`. You can run multiple instances with different environment files.
+
+---
+
+## Related Projects
+
+- [Model Context Protocol](https://modelcontextprotocol.io/) — The open protocol standard for connecting AI assistants to data sources and tools.
+- [GoHighLevel Official Docs](https://help.gohighlevel.com/) — Official documentation for the GoHighLevel platform.
+- [LeadConnector API Reference](https://public-api.gohighlevel.com/) — Official REST API documentation.
+
+---
+
+If you find this project useful, please consider [starring the repository](https://github.com/tkturners/gohighlevel-mcp) on GitHub!
 
 ## License
 
