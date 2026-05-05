@@ -51,6 +51,26 @@ export function createPipelineTools(client: GhlClient): Record<string, Tool> {
       },
     },
 
+    ghl_list_calendars: {
+      description: 'List all calendars for the configured location.',
+      inputSchema: {
+        type: 'object',
+        properties: {
+          groupId: { type: 'string', description: 'Optional calendar group ID to filter by' },
+          skip: { type: 'number', description: 'Number of records to skip (default 0)' },
+          limit: { type: 'number', description: 'Max records to return (default 20)' },
+        },
+      },
+      handler: async (args: Record<string, unknown>) => {
+        const params: Record<string, unknown> = { locationId: config.ghl.locationId };
+        if (args.groupId) params.groupId = args.groupId;
+        if (args.skip !== undefined) params.skip = args.skip;
+        if (args.limit !== undefined) params.limit = args.limit;
+        const data = await client.get('/calendars/', params);
+        return { content: [{ type: 'text', text: JSON.stringify(data, null, 2) }] };
+      },
+    },
+
     ghl_list_calendar_groups: {
       description: 'List all calendar groups for the configured location.',
       inputSchema: {
