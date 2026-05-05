@@ -33,7 +33,7 @@
     "url": "https://github.com/tkturners/gohighlevel-mcp/issues"
   },
   "homepage": "https://github.com/tkturners/gohighlevel-mcp#readme",
-  "author": "tkturners",
+  "author": "Bilal Mehmood",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
