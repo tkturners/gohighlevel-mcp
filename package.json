@@ -1,0 +1,53 @@
+{
+  "name": "ghl-mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for GoHighLevel integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ghl-mcp-server": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "dev": "tsx src/index.ts",
+    "prepare": "npm run build",
+    "oauth:exchange": "tsx scripts/oauth-exchange.ts",
+    "lint": "eslint src scripts",
+    "lint:fix": "eslint src scripts --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.ts\""
+  },
+  "keywords": [
+    "mcp",
+    "gohighlevel",
+    "ghl",
+    "crm",
+    "model-context-protocol"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/ghl-mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/ghl-mcp-server/issues"
+  },
+  "homepage": "https://github.com/your-org/ghl-mcp-server#readme",
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
