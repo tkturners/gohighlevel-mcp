@@ -1,5 +1,5 @@
 {
-  "name": "ghl-mcp-server",
+  "name": "gohighlevel-mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol (MCP) server for GoHighLevel integration",
   "type": "module",
@@ -27,13 +27,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/ghl-mcp-server.git"
+    "url": "git+https://github.com/tkturners/gohighlevel-mcp.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/ghl-mcp-server/issues"
+    "url": "https://github.com/tkturners/gohighlevel-mcp/issues"
   },
-  "homepage": "https://github.com/your-org/ghl-mcp-server#readme",
-  "author": "Your Name",
+  "homepage": "https://github.com/tkturners/gohighlevel-mcp#readme",
+  "author": "tkturners",
   "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",

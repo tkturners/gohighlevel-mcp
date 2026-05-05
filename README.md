@@ -1,4 +1,4 @@
-# GHL MCP Server
+# gohighlevel-mcp
 
 Model Context Protocol (MCP) server for [GoHighLevel](https://www.gohighlevel.com/) integration. Enables Claude Code and other MCP clients to interact directly with your GHL account via a comprehensive toolset.
 
