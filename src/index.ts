@@ -18,6 +18,8 @@ import { createAiAgentTools } from './tools/ghl/aiAgents.js';
 import { createWebhookTools } from './tools/ghl/webhooks.js';
 import { createLocationTools } from './tools/ghl/locations.js';
 import { createCustomValueTools } from './tools/ghl/customValues.js';
+import { createSocialPlannerTools } from './tools/ghl/socialPlanner.js';
+import { createAdPublishingTools } from './tools/ghl/adPublishing.js';
 
 const server = new Server(
   {
@@ -47,6 +49,8 @@ const allTools = {
   ...createWebhookTools(ghlClient),
   ...createLocationTools(ghlClient),
   ...createCustomValueTools(ghlClient),
+  ...createSocialPlannerTools(ghlClient),
+  ...createAdPublishingTools(ghlClient),
 };
 
 server.setRequestHandler(ListToolsRequestSchema, async () => {
